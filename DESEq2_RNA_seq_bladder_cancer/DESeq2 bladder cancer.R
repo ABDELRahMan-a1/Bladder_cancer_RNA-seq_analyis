@@ -15,17 +15,17 @@ dim(b_data)
 #explore the data distribution using the histogram plot
 hist(b_data, col = "orange", main="Histogram", breaks = 100)
 
-#scaling the data using log2 transformation to better visulization
-# we use (+1) to avoid the infinity character when we log zero valus 
+#scaling the data using log2 transformation to better visualization
+# We use (+1) to avoid the infinity character when we log a zero values 
 hist(log2(b_data+1), col = "orange", main="Histogram")
 
 #It is absolutely critical that the columns of the "b_data" and the rows of 
 #the "b_pheno" (information about samples) are in the same order.DESeq2 will
-#not make guesses as to which column of the count matrix belongs to which row
-#of the column data, these must be provided to DESeq2 already in consistent order
+# Do not make guesses as to which column of the count matrix belongs to which row
+#of the column data, these must be provided to DESeq2 already in a consistent order
 b_pheno=b_pheno[colnames(b_data),]
 
-#The deseq2 package require the count data values to be integers 
+#The deseq2 package requires the count data values to be integers 
 #save the gene names in a variable
 genes=row.names(b_data)
 #convert the data values to integers
