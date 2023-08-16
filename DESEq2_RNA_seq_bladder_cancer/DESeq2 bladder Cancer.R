@@ -49,7 +49,7 @@ condition2="Solid Tissue Normal"
 dds_bladder= DESeqDataSetFromMatrix( countData = b_data , colData = b_pheno, design = ~ Sample.Type)
 #run the deseq2 worflow
 dds_b.run = DESeq(dds_bladder)
-#specifying the contrast "comparison" (to make a res object based on two specific conditions)
+#specifying the contrast or "comparison" (to make a res object based on two specific conditions)
 res=results(dds_b.run, contrast = c("Sample.Type",condition1 ,condition2))
 
 # How to remove nulls (NA)
